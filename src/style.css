@@ -1,0 +1,119 @@
+:root {
+    --text: #e8e9f2;
+    --background: #0b0c13;
+    --primary: #9CA3DB;
+    --secondary: #49516F;
+    --accent: #9a77b4;
+
+    --text-50: #efeff6;
+    --text-100: #dee0ed;
+    --text-200: #bec1da;
+    --text-300: #9da1c8;
+    --text-400: #7c82b6;
+    --text-500: #5c63a3;
+    --text-600: #494f83;
+    --text-700: #373b62;
+    --text-800: #252841;
+    --text-900: #121421;
+    --text-950: #090a10;
+
+    --background-50: #eff0f6;
+    --background-100: #dfe0ec;
+    --background-200: #bec1da;
+    --background-300: #9ea3c7;
+    --background-400: #7d84b5;
+    --background-500: #5d65a2;
+    --background-600: #4a5182;
+    --background-700: #383d61;
+    --background-800: #252841;
+    --background-900: #131420;
+    --background-950: #090a10;
+
+    --primary-50: #eceef8;
+    --primary-100: #dadcf1;
+    --primary-200: #b4bae4;
+    --primary-300: #8f97d6;
+    --primary-400: #6974c9;
+    --primary-500: #4452bb;
+    --primary-600: #364196;
+    --primary-700: #293170;
+    --primary-800: #1b214b;
+    --primary-900: #0e1025;
+    --primary-950: #070813;
+
+    --secondary-50: #f0f1f5;
+    --secondary-100: #e0e2eb;
+    --secondary-200: #c1c6d7;
+    --secondary-300: #a2a9c3;
+    --secondary-400: #848dae;
+    --secondary-500: #65709a;
+    --secondary-600: #515a7b;
+    --secondary-700: #3c435d;
+    --secondary-800: #282d3e;
+    --secondary-900: #14161f;
+    --secondary-950: #0a0b0f;
+
+    --accent-50: #f3eff6;
+    --accent-100: #e6deed;
+    --accent-200: #cebddb;
+    --accent-300: #b59cc9;
+    --accent-400: #9d7bb7;
+    --accent-500: #845ba4;
+    --accent-600: #6a4884;
+    --accent-700: #4f3663;
+    --accent-800: #352442;
+    --accent-900: #1a1221;
+    --accent-950: #0d0910;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: var(--background);
+    margin: 0;
+}
+
+div#app {
+    height: 100%;
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    color: var(--text);
+    font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+div.section {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div#hero h1 {
+    margin: 0 0 8px 0;
+}
+
+div#hero p#links {
+    color: var(--primary-300);
+    margin: 0;
+}
+
+div#hero p#links a {
+    margin: 0 8px;
+    cursor: pointer;
+    transition: 0.1s;
+    transition-timing-function: linear;
+    color: var(--text);
+}
+
+div#hero p#links a:hover {
+    margin: 0 12px;
+    color: var(--primary-300);
+}
