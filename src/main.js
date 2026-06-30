@@ -1,4 +1,5 @@
 import { get } from "./variables";
+import { random } from "./utils";
 
 const heroGreeting = document.querySelector("#hero-greeting");
 const canvas = document.querySelector("#hero-canvas");
@@ -9,7 +10,7 @@ const stars = [];
 const greetings = ["hi", "hi there", "hey", "hey there", "hiya", "hello"];
 const heroLinks = document.querySelectorAll("#hero > #links > a");
 
-heroGreeting.innerText = `${greetings[Math.floor(Math.random() * greetings.length)]}`;
+heroGreeting.innerText = `${greetings[Math.floor(random(0, greetings.length))]}`;
 
 function initCanvas() {
     const dpr = window.devicePixelRatio || 1;
@@ -22,16 +23,18 @@ function initCanvas() {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 }
 
-function generateStar(init) {
-    const x = init ? Math.floor(Math.random() * window.innerWidth) : 0;
-    const y = Math.floor(Math.random() * window.innerHeight);
-    const z = Math.random() * 2;
+function generateStars(amount, init) {
+    for(let i = 0; i < amount; i++) {
+        const x = init ? Math.floor(Math.random() * window.innerWidth) : 0;
+        const y = Math.floor(Math.random() * window.innerHeight);
+        const z = random(0.1, 1.5, 10);
 
-    stars.push({
-        x,
-        y,
-        z
-    })
+        stars.push({
+            x,
+            y,
+            z
+        })
+    }
 }
 
 function draw() {
@@ -42,14 +45,22 @@ function draw() {
     for(let i = 0; i < stars.length; i++) {
         const star = stars[i];
         star.x += star.z;
-
+        
         if(star.x > window.innerWidth) {
             stars.splice(i, 1);
-            generateStar();
+            generateStars(1);
         }
 
         ctx.beginPath();
-        ctx.arc(star.x, star.y, star.z, 0, Math.PI * 2);
+
+        if(star.z < 1) {
+            ctx.globalAlpha = star.z;
+            ctx.arc(star.x, star.y, 1, 0, Math.PI * 2);
+        } else {
+            ctx.globalAlpha = 1;
+            ctx.arc(star.x, star.y, star.z, 0, Math.PI * 2);
+        }
+
         ctx.fill();
 
     }
@@ -57,12 +68,9 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
-
 initCanvas();
 
-for(let i = 0; i < 100; i++) {
-    generateStar(true);
-}
+generateStars(window.innerWidth * 3, true);
 
 draw();
 

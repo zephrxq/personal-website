@@ -97,6 +97,13 @@ div.section {
     justify-content: center;
 }
 
+div#hero div#hero-text {
+    padding: 8px;
+    background-color: transparent;
+    background: radial-gradient(circle, var(--background) 10%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+}
+
 div#hero h1 {
     margin: 0 0 8px 0;
 }
